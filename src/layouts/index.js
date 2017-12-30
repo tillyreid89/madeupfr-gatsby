@@ -1,64 +1,59 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import '../assets/scss/main.scss'
+import Header from '../components/Header'
+import Menu from '../components/Menu'
+import Contact from '../components/Contact'
+import Footer from '../components/Footer'
 
-import './index.css'
+class Template extends React.Component {
 
-const Header = () => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Gatsby
-        </Link>
-      </h1>
-    </div>
-  </div>
-)
+    constructor(props) {
+        super(props)
+        this.state = {
+            isMenuVisible: false,
+            loading: 'is-loading'
+        }
+        this.handleToggleMenu = this.handleToggleMenu.bind(this)
+    }
 
-const TemplateWrapper = ({ children }) => (
-  <div>
-    <Helmet
-      title="Gatsby Default Starter"
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <Header />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
-      {children()}
-    </div>
-  </div>
-)
+    componentDidMount () {
+        this.timeoutId = setTimeout(() => {
+            this.setState({loading: ''});
+        }, 100);
+    }
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+    componentWillUnmount () {
+        if (this.timeoutId) {
+            clearTimeout(this.timeoutId);
+        }
+    }
+
+    handleToggleMenu() {
+        this.setState({
+            isMenuVisible: !this.state.isMenuVisible
+        })
+    }
+
+    render() {
+        const { children } = this.props
+
+        return (
+            <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
+                <div id="wrapper">
+                    <Header onToggleMenu={this.handleToggleMenu} />
+                    {children()}
+                    <Contact />
+                    <Footer />
+                </div>
+                <Menu onToggleMenu={this.handleToggleMenu} />
+            </div>
+        )
+    }
 }
 
-export default TemplateWrapper
+Template.propTypes = {
+    children: React.PropTypes.func
+}
+
+export default Template
