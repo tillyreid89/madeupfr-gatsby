@@ -1,0 +1,23 @@
+---
+templateKey: blog-post
+path: /monaco
+title: Monaco
+date: 2017-08-20 13:32:20 +0300
+description: >-
+  We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
+  Mountain coffee beans in our store next week.
+img: Monaco.jpg # Add image post (optional)
+tags: [Blog, Meditation]
+---
+
+I think that one of the great things about Monaco is that beyond the overwhelming display of wealth and luxury, there is a lot more to the principality than you might think. The Monte Carlo Casino is perhaps the most well known building within Monaco and is architectually just stunning from all angles particularly from the front. Cafe de Paris and its wonderful terrace are located just next door which is one of the best places in the world to people and car watch.
+
+![Yosh Ginsu](/img/Monaco3.jpg)
+
+The Oceanographic Museum is also worth visiting with its incredible aquariums and oceanic artefacts.
+
+One of my favourite discoveries this year was Le Jardin Exotique de Monaco. This is perhaps one of the best hidden treasures that Monaco has to offer. Surrounded by rare and exotique plants with a view over the Mediterranean Sea, you have this incredible feeling of being anyway in the world.
+
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
