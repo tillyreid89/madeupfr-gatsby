@@ -6,7 +6,7 @@ date: 2017-08-24
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.
-img: SaintPaul2.jpg # Add image post (optional)
+image: /img/SaintPaul5.jpg # Add image post (optional)
 tags: [Blog, Sunset]
 author: # Add name author (optional)
 ---

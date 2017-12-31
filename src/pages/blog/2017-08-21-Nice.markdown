@@ -6,7 +6,7 @@ date: 2017-08-23
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.
-img: Nice4.jpg # Add image post (optional)
+image: /img/Nice4.jpg # Add image post (optional)
 tags: [Blog, Meditation]
 author: # Add name author (optional)
 ---

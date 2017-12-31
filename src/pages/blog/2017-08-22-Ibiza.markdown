@@ -6,7 +6,7 @@ date: 2017-08-21
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.
-img: Ibiza2.jpg # Add image post (optional)
+image: /img/Ibiza2.jpg # Add image post (optional)
 tags: [Blog, Mountains, Sport]
 author: # Add name author (optional)
 ---

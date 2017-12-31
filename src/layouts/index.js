@@ -7,27 +7,31 @@ import logoWhite from "../img/logoWhite.svg";
 import "./all.sass";
 
 const Navbar = () => (
-  <nav className="navbar is-transparent">
-    <div className="container">
-      {/* <div className="navbar-brand">
+  <nav
+    className="navbar is-transparent"
+    role="navigation"
+    aria-label="main navigation"
+  >
+    {/* <div className="container"> */}
+    {/* <div className="navbar-brand">
         <Link to="/" className="navbar-item">
           <figure className="image">
             <img src={logoBlack} alt="Kaldi" style={{ width: "88px" }} />
           </figure>
         </Link>
       </div> */}
-      <div className="navbar-start">
-        <Link className="navbar-item" to="/">
-          Blog
-        </Link>
-        <Link className="navbar-item" to="/about">
-          About
-        </Link>
-        <Link className="navbar-item" to="/products">
-          Products
-        </Link>
-      </div>
+    <div className="navbar-start">
+      <Link className="navbar-item" to="/">
+        Blog
+      </Link>
+      <Link className="navbar-item" to="/about">
+        About
+      </Link>
+      <Link className="navbar-item" to="/products">
+        Products
+      </Link>
     </div>
+    {/* </div> */}
   </nav>
 );
 
@@ -116,9 +120,12 @@ const TemplateWrapper = ({ children }) => (
           </div>
         </nav>
       </div> */}
-    </section>
+      {/* <div className="hero-foot">
 
+      </div> */}
+    </section>
     <Navbar />
+
     <div>{children()}</div>
   </div>
 );

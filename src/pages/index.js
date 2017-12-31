@@ -2,6 +2,64 @@ import React from "react";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
 import Script from "react-load-script";
+import chunk from "lodash/fp/chunk";
+import map from "lodash/fp/map";
+import filter from "lodash/fp/filter";
+import isNil from "lodash/fp/isNil";
+
+class BlogPostElement extends React.Component {
+  render() {
+    const { edge } = this.props;
+    if (isNil(edge)) {
+      return null;
+    } else {
+      return (
+        <div className="tile is-child is-parent is-6" key={edge.node.id}>
+          <Link
+            className="tile is-child box is-radiusless"
+            style={{
+              color: "white",
+              textShadow: "0px 0px 3px rgba(0, 0, 0, 0.5)",
+              backgroundRepeat: "no-repeat",
+              backgroundAttachment: "local",
+              backgroundPosition: "center center",
+              backgroundImage: `url(${edge.node.frontmatter.image})`,
+              backgroundSize: "cover",
+              height: "96px"
+            }}
+            to={edge.node.frontmatter.path}
+          >
+            <p className="content">
+              <h1
+                className="title"
+                style={{
+                  color: "white"
+                }}
+              >
+                {edge.node.frontmatter.title}
+              </h1>
+              <h4
+                className="subTitle"
+                style={{
+                  color: "white"
+                }}
+              >
+                {edge.node.frontmatter.date}
+              </h4>
+              {/* &bull; */}
+              {/* {edge.node.excerpt} */}
+              {/* <br />
+              <br />
+              <Link className="button is-small" to={edge.node.frontmatter.path}>
+                Keep Reading →
+              </Link> */}
+            </p>
+          </Link>
+        </div>
+      );
+    }
+  }
+}
 
 export default class IndexPage extends React.Component {
   handleScriptLoad() {
@@ -26,43 +84,15 @@ export default class IndexPage extends React.Component {
           url="https://identity.netlify.com/v1/netlify-identity-widget.js"
           onLoad={this.handleScriptLoad.bind(this)}
         />
-        <div className="container">
-          {/* <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-          </div> */}
-          {posts
-            .filter(post => post.node.frontmatter.templateKey === "blog-post")
-            .map(({ node: post }) => {
-              return (
-                <div
-                  className="content"
-                  style={{ border: "1px solid #eaecee", padding: "2em 4em" }}
-                  key={post.id}
-                >
-                  <p>
-                    <Link
-                      className="has-text-primary"
-                      to={post.frontmatter.path}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                    {post.excerpt}
-                    <br />
-                    <br />
-                    <Link
-                      className="button is-small"
-                      to={post.frontmatter.path}
-                    >
-                      Keep Reading →
-                    </Link>
-                  </p>
-                </div>
-              );
-            })}
+        <div className="tile is-ancestor is-vertical">
+          {map(([edge1, edge2]) => {
+            return (
+              <div className="tile">
+                <BlogPostElement edge={edge1} />
+                <BlogPostElement edge={edge2} />
+              </div>
+            );
+          }, chunk(2, filter(post => post.node.frontmatter.templateKey === "blog-post", posts)))}
         </div>
       </section>
     );
@@ -74,9 +104,10 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          excerpt(pruneLength: 400)
+          excerpt(pruneLength: 200)
           id
           frontmatter {
+            image
             title
             templateKey
             date(formatString: "MMMM DD, YYYY")

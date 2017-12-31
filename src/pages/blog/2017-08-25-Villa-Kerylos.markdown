@@ -6,7 +6,7 @@ date: 2017-08-25
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.
-img: VillaKerylos11.jpg # Add image post (optional)
+image: /img/VillaKerylos11.jpg # Add image post (optional)
 tags: [Blog, Mountains]
 ---
 Situated right on the Mediterranean Sea in Beaulieu-sur-Mer, sits the idyllic Villa Kerylos. Built in the early 20th Century, the greek inspired property is an architects dream and the perfect hide away for those wanting to escape the bright lights of Nice and Monaco.
