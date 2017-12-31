@@ -6,34 +6,52 @@ import logoBlack from "../img/logoBlack.svg";
 import logoWhite from "../img/logoWhite.svg";
 import "./all.sass";
 
-const Navbar = () => (
-  <nav
-    className="navbar is-transparent"
-    role="navigation"
-    aria-label="main navigation"
-  >
-    {/* <div className="container"> */}
-    {/* <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-          <figure className="image">
-            <img src={logoBlack} alt="Kaldi" style={{ width: "88px" }} />
-          </figure>
-        </Link>
-      </div> */}
-    <div className="navbar-start">
-      <Link className="navbar-item" to="/">
-        Blog
-      </Link>
-      <Link className="navbar-item" to="/about">
-        About
-      </Link>
-      <Link className="navbar-item" to="/products">
-        Products
-      </Link>
-    </div>
-    {/* </div> */}
-  </nav>
-);
+class Navbar extends React.Component {
+  state = { active: false };
+  render() {
+    return (
+      <nav
+        className="navbar is-transparent"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div className="navbar-brand">
+          {/* <Link to="/" className="navbar-item">
+            <figure className="image">
+              <img src={logoBlack} alt="Kaldi" style={{ width: "88px" }} />
+            </figure>
+          </Link> */}
+          <button
+            className={`navbar-burger button is-radiusless ${this.state.active
+              ? "is-active"
+              : ""}`}
+            onClick={() => this.setState({ active: !this.state.active })}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+        <div className={`navbar-menu  ${this.state.active ? "is-active" : ""}`}>
+          <div
+            className="navbar-start"
+            onClick={() => this.setState({ active: !this.state.active })}
+          >
+            <Link className="navbar-item" to="/">
+              Blog
+            </Link>
+            <Link className="navbar-item" to="/about">
+              About
+            </Link>
+            <Link className="navbar-item" to="/products">
+              Products
+            </Link>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+}
 
 const TemplateWrapper = ({ children }) => (
   <div>
