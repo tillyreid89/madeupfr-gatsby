@@ -16,7 +16,7 @@ class BlogPostElement extends React.Component {
       return (
         <div className="tile is-child is-parent is-6" key={edge.node.id}>
           <Link
-            className="tile is-child box is-radiusless"
+            className="tile is-child box"
             style={{
               color: "white",
               textShadow: "0px 0px 3px rgba(0, 0, 0, 0.5)",

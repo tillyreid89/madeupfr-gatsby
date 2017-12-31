@@ -22,7 +22,7 @@ class Navbar extends React.Component {
             </figure>
           </Link> */}
           <button
-            className={`navbar-burger button is-radiusless ${this.state.active
+            className={`navbar-burger button ${this.state.active
               ? "is-active"
               : ""}`}
             onClick={() => this.setState({ active: !this.state.active })}
