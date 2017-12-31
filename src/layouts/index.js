@@ -1,59 +1,50 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import '../assets/scss/main.scss'
-import Header from '../components/Header'
-import Menu from '../components/Menu'
-import Contact from '../components/Contact'
-import Footer from '../components/Footer'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
+import github from '../img/github-icon.svg';
+import logo from '../img/logo.svg';
+import './all.sass';
 
-class Template extends React.Component {
+const Navbar = () => (
+  <nav className="navbar is-transparent">
+    <div className="container">
+      <div className="navbar-brand">
+        <Link to="/" className="navbar-item">
+          <figure className="image">
+            <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+          </figure>
+        </Link>
+      </div>
+      <div className="navbar-start">
+        <Link className="navbar-item" to="/about">
+          About
+        </Link>
+        <Link className="navbar-item" to="/products">
+          Products
+        </Link>
+      </div>
+      <div className="navbar-end">
+        <a className="navbar-item" href="https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate" target="_blank" rel="noopener noreferrer">
+          <span className="icon">
+            <img src={github} alt="Github" />
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+);
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            isMenuVisible: false,
-            loading: 'is-loading'
-        }
-        this.handleToggleMenu = this.handleToggleMenu.bind(this)
-    }
+const TemplateWrapper = ({ children }) => (
+  <div>
+    <Helmet title="Home | Gatsby + Netlify CMS" />
+    <Navbar />
+    <div>{children()}</div>
+  </div>
+);
 
-    componentDidMount () {
-        this.timeoutId = setTimeout(() => {
-            this.setState({loading: ''});
-        }, 100);
-    }
+TemplateWrapper.propTypes = {
+  children: PropTypes.func
+};
 
-    componentWillUnmount () {
-        if (this.timeoutId) {
-            clearTimeout(this.timeoutId);
-        }
-    }
-
-    handleToggleMenu() {
-        this.setState({
-            isMenuVisible: !this.state.isMenuVisible
-        })
-    }
-
-    render() {
-        const { children } = this.props
-
-        return (
-            <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
-                <div id="wrapper">
-                    <Header onToggleMenu={this.handleToggleMenu} />
-                    {children()}
-                    <Contact />
-                    <Footer />
-                </div>
-                <Menu onToggleMenu={this.handleToggleMenu} />
-            </div>
-        )
-    }
-}
-
-Template.propTypes = {
-    children: React.PropTypes.func
-}
-
-export default Template
+export default TemplateWrapper;
