@@ -16,15 +16,13 @@
     "react-load-script": "0.0.6",
     "gatsby-transformer-sharp": "^1.6.13"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "npm run build:cms && npm run build:site",
     "build:site": "gatsby build",
-    "build:cms": "cd cms && yarn && npm run build",
+    "build:cms": "cd cms && npm install && npm run build",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "_format": "prettier --trailing-comma es5 --no-semi --single-quote --write",
