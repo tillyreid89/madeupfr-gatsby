@@ -97,7 +97,7 @@ const TemplateWrapper = ({ children }) => (
         className="hero-body"
         style={{
           backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
+          backgroundAttachment: "local",
           backgroundPosition: "center bottom",
           backgroundImage: "url(/img/background.jpg)",
           backgroundSize: "cover"
