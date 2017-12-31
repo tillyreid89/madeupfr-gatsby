@@ -9,14 +9,17 @@ import "./all.sass";
 const Navbar = () => (
   <nav className="navbar is-transparent">
     <div className="container">
-      <div className="navbar-brand">
+      {/* <div className="navbar-brand">
         <Link to="/" className="navbar-item">
           <figure className="image">
             <img src={logoBlack} alt="Kaldi" style={{ width: "88px" }} />
           </figure>
         </Link>
-      </div>
+      </div> */}
       <div className="navbar-start">
+        <Link className="navbar-item" to="/">
+          Blog
+        </Link>
         <Link className="navbar-item" to="/about">
           About
         </Link>
@@ -74,14 +77,16 @@ const TemplateWrapper = ({ children }) => (
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
           backgroundPosition: "center bottom",
-          backgroundImage: "url(/img/saintropez.jpg)",
+          backgroundImage: "url(/img/background.jpg)",
           backgroundSize: "cover"
         }}
       >
         <div className="container has-text-centered">
-          <img src={logoWhite} alt="Kaldi" style={{ width: "30%" }} />
-          {/* <h1 className="title">Title</h1> */}
-          <h2 className="subtitle">Subtitle</h2>
+          <Link to="/">
+            <img src={logoWhite} alt="Kaldi" style={{ width: "30%" }} />
+            {/* <h1 className="title">Title</h1> */}
+            {/* <h2 className="subtitle">Subtitle</h2> */}
+          </Link>
         </div>
       </div>
       {/*
