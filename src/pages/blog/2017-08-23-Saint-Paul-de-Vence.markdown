@@ -2,7 +2,7 @@
 templateKey: blog-post
 path: /saint-paul-de-vence
 title: Saint Paul de Vence
-date: 2017-08-24 13:32:20 +0300
+date: 2017-08-24
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.

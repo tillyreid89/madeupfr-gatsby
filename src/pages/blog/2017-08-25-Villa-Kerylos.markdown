@@ -2,7 +2,7 @@
 templateKey: blog-post
 path: /villa-kerylos
 title: Villa Kerylos
-date: 2017-08-25 13:32:20 +0300
+date: 2017-08-25
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
   Mountain coffee beans in our store next week.
