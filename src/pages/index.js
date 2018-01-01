@@ -7,6 +7,8 @@ import map from "lodash/fp/map";
 import filter from "lodash/fp/filter";
 import isNil from "lodash/fp/isNil";
 
+const mapUncapped = map.convert({ cap: false });
+
 class BlogPostElement extends React.Component {
   render() {
     const { edge } = this.props;
@@ -29,7 +31,7 @@ class BlogPostElement extends React.Component {
             }}
             to={edge.node.frontmatter.path}
           >
-            <p className="content">
+            <div className="content">
               <h1
                 className="title"
                 style={{
@@ -53,7 +55,7 @@ class BlogPostElement extends React.Component {
               <Link className="button is-small" to={edge.node.frontmatter.path}>
                 Keep Reading →
               </Link> */}
-            </p>
+            </div>
           </Link>
         </div>
       );
@@ -85,9 +87,9 @@ export default class IndexPage extends React.Component {
           onLoad={this.handleScriptLoad.bind(this)}
         />
         <div className="tile is-ancestor is-vertical">
-          {map(([edge1, edge2]) => {
+          {mapUncapped(([edge1, edge2], index) => {
             return (
-              <div className="tile">
+              <div key={index} className="tile">
                 <BlogPostElement edge={edge1} />
                 <BlogPostElement edge={edge2} />
               </div>
