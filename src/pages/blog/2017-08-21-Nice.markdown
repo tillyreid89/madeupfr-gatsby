@@ -1,0 +1,32 @@
+---
+templateKey: blog-post
+path: /life-in-nice
+title: Life in Nice
+date: 2017-08-23
+description: >-
+  We’re proud to announce that we’ll be offering a small batch of Jamaica Blue
+  Mountain coffee beans in our store next week.
+image: /img/Nice4.jpg # Add image post (optional)
+tags: [Blog, Meditation]
+author: # Add name author (optional)
+---
+Where do I even begin? Moving from the UK to Nice is hands down one of the best decisions I’ve ever made. As someone who’s always wanted to live by the sea with warm temperatures all year round, I couldn’t feel any luckier to have spent the last year and a half in such a beautiful, dynamic place.
+
+![Yosh Ginsu](/img/Nice.jpg)
+
+With the Mediterranean Sea at your feet, of course the Promenade des Anglais is Nice’s key feature but apart from the idyllic landscape and stunning architecture, Nice itself is filled with shops, galleries, museums, and of course, it’s famous Sunday market. This is where you'll find the local specialities such as Socca and Pastis as well as other essentials originating from the region. If you're worried at all about language barriers, Nice is one of the few places in France where a large portion of the population speak english so communication shouldn't ever be an issue here.
+
+![Yosh Ginsu](/img/Lafemme2.jpg)
+
+The lifestyle is very different to that in the UK in the sense that the ability to relax and enjoy life is very much a daily occurrence. Whatever the time of year, the streets are lined with both locals and tourists making the most of the glorious sunshine from laying on the beach to  enjoying the food and flower markets in the Old Town. Dining whether it be breakfast or dinner, is a crucial part of the social life and therefore when it comes to restaurants and cafes, we’re utterly spoilt for choice. Although service can be a little slow sometimes, particularly during peak season, I can't criticise the delicious Breakfast/Brunch at La Femme du Boulanger, located around the centre of Nice. Whether you're hungover on a Sunday morning or just really really hungry, this is the best solution to your problem. For dinner, I have to recommend my absolute favourite restaurant in Nice, Maison Gusto. The food, the wine, the atmosphere; I can't fault it in any way whatsoever and the staff are always so happy and friendly, something I really appreciate.
+
+![Yosh Ginsu](/img/Plongeoir.jpg)
+
+Nice is also surrounded by a variety of interesting and wonderful places including Cannes, Antibes, Saint Jean Cap Ferrat, Monaco, Saint Tropez and of course Italy. If you're ever lucky enough to live here and if you're anything like myself, then you'll love everything about the Cote d'Azur and the amazing, wonderful people that make this region what it is.
+
+![Yosh Ginsu](/img/NiceSunset2.jpg)
+
+
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

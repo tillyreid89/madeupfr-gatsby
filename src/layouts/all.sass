@@ -1,0 +1,48 @@
+@import "~bulma/sass/utilities/initial-variables"
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat")
+
+@import url("https://fonts.googleapis.com/css?family=Lato")
+
+// Config
+$kaldi-red: #49aacd
+$kaldi-red-invert: #fff
+
+$primary: $kaldi-red
+$primary-invert: $kaldi-red-invert
+
+$family-sans-serif: Montserrat
+
+$gap:	32px
+$tablet:	769px
+$desktop:	960px + (2 * $gap)
+$widescreen:	1152px + (2 * $gap)
+$fullhd:	1344px + (2 * $gap)
+
+$radius-small:	0px
+$radius: 0px
+$radius-large:	0px
+// $radius-rounded
+
+p
+  font-family: Lato
+
+
+// Helper Classes
+.full-width-image-container
+  width: 100vw
+  height: 400px
+  position: relative
+  left: 50%
+  right: 50%
+  margin: 5em -50vw
+  background-size: cover
+  background-position: bottom
+  display: flex
+  justify-content: center
+  align-items: center
+
+.margin-top-0
+  margin-top: 0 !important
+
+@import "~bulma"

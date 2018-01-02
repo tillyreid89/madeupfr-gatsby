@@ -1,59 +1,155 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import '../assets/scss/main.scss'
-import Header from '../components/Header'
-import Menu from '../components/Menu'
-import Contact from '../components/Contact'
-import Footer from '../components/Footer'
+import React from "react";
+import PropTypes from "prop-types";
+import Link from "gatsby-link";
+import Helmet from "react-helmet";
+import logoBlack from "../img/logoBlack.svg";
+import logoWhite from "../img/logoWhite.svg";
+import "./all.sass";
 
-class Template extends React.Component {
+class Navbar extends React.Component {
+  state = { active: false };
+  render() {
+    return (
+      <nav
+        className="navbar is-transparent"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div className="navbar-brand">
+          {/* <Link to="/" className="navbar-item">
+            <figure className="image">
+              <img src={logoBlack} alt="Kaldi" style={{ width: "88px" }} />
+            </figure>
+          </Link> */}
+          <button
+            className={`navbar-burger button ${this.state.active
+              ? "is-active"
+              : ""}`}
+            onClick={() => this.setState({ active: !this.state.active })}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+        <div className={`navbar-menu  ${this.state.active ? "is-active" : ""}`}>
+          <div
+            className="navbar-start"
+            onClick={() => this.setState({ active: !this.state.active })}
+          >
+            <Link className="navbar-item" to="/">
+              Blog
+            </Link>
+            <Link className="navbar-item" to="/about">
+              About
+            </Link>
+            <Link className="navbar-item" to="/products">
+              Products
+            </Link>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+}
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            isMenuVisible: false,
-            loading: 'is-loading'
-        }
-        this.handleToggleMenu = this.handleToggleMenu.bind(this)
-    }
+const TemplateWrapper = ({ children }) => (
+  <div>
+    <Helmet title="Home | Gatsby + Netlify CMS" />
 
-    componentDidMount () {
-        this.timeoutId = setTimeout(() => {
-            this.setState({loading: ''});
-        }, 100);
-    }
-
-    componentWillUnmount () {
-        if (this.timeoutId) {
-            clearTimeout(this.timeoutId);
-        }
-    }
-
-    handleToggleMenu() {
-        this.setState({
-            isMenuVisible: !this.state.isMenuVisible
-        })
-    }
-
-    render() {
-        const { children } = this.props
-
-        return (
-            <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
-                <div id="wrapper">
-                    <Header onToggleMenu={this.handleToggleMenu} />
-                    {children()}
-                    <Contact />
-                    <Footer />
-                </div>
-                <Menu onToggleMenu={this.handleToggleMenu} />
+    <section className="hero is-primary is-medium">
+      {/* <div className="hero-head">
+        <nav className="navbar">
+          <div className="container">
+            <div className="navbar-brand">
+              <a className="navbar-item">
+                <img
+                  src="https://bulma.io/images/bulma-type-white.png"
+                  alt="Logo"
+                />
+              </a>
+              <span className="navbar-burger burger" data-target="navbarMenuHeroA">
+                <span />
+                <span />
+                <span />
+              </span>
             </div>
-        )
-    }
-}
+            <div id="navbarMenuHeroA" className="navbar-menu">
+              <div className="navbar-end">
+                <a className="navbar-item is-active">Home</a>
+                <a className="navbar-item">Examples</a>
+                <a className="navbar-item">Documentation</a>
+                <span className="navbar-item">
+                  <a className="button is-primary is-inverted">
+                    <span className="icon">
+                      <i className="fa fa-github" />
+                    </span>
+                    <span>Download</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div> */}
 
-Template.propTypes = {
-    children: React.PropTypes.func
-}
+      <div
+        className="hero-body"
+        style={{
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "local",
+          backgroundPosition: "center bottom",
+          backgroundImage: "url(/img/background.jpg)",
+          backgroundSize: "cover"
+        }}
+      >
+        <div className="container has-text-centered">
+          <Link to="/">
+            <img src={logoWhite} alt="Kaldi" style={{ width: "30%" }} />
+            {/* <h1 className="title">Title</h1> */}
+            {/* <h2 className="subtitle">Subtitle</h2> */}
+          </Link>
+        </div>
+      </div>
+      {/*
+      <div className="hero-foot">
+        <nav className="tabs">
+          <div className="container">
+            <ul>
+              <li className="is-active">
+                <a>Overview</a>
+              </li>
+              <li>
+                <a>Modifiers</a>
+              </li>
+              <li>
+                <a>Grid</a>
+              </li>
+              <li>
+                <a>Elements</a>
+              </li>
+              <li>
+                <a>Components</a>
+              </li>
+              <li>
+                <a>Layout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div> */}
+      {/* <div className="hero-foot">
 
-export default Template
+      </div> */}
+    </section>
+    <Navbar />
+
+    <div>{children()}</div>
+  </div>
+);
+
+TemplateWrapper.propTypes = {
+  children: PropTypes.func
+};
+
+export default TemplateWrapper;
