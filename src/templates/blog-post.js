@@ -10,8 +10,8 @@ export const BlogPostTemplate = ({ content, contentComponent, description, title
       <div className="columns">
         <div className="column is-10 is-offset-1">
           <h1 className="title is-size-2 has-text-weight-bold is-bold-light">{title}</h1>
-          <p>{description}</p>
-          <PostContent content={content} />
+          {/* <p className="is-italic">{description}</p> */}
+          <PostContent content={content} className={"post-content"} />
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@ export default ({ data }) => {
     content={post.html}
     contentComponent={HTMLContent}
     description={post.frontmatter.description}
-    helmet={<Helmet title={`Blog | ${post.frontmatter.title}`} />}
+    helmet={<Helmet title={`Made Up | ${post.frontmatter.title}`} />}
     title={post.frontmatter.title}
   />;
 }

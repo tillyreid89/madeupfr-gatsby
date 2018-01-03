@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`
+    title: `Made Up`
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -31,10 +31,10 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 1200,
+              maxWidth: 1116,
               // Remove the default behavior of adding a link to each
               // image.
-              linkImagesToOriginal: false,
+              linkImagesToOriginal: true,
               // Analyze images' pixel density to make decisions about
               // target image size. This is what GitHub is doing when
               // embedding images in tickets. This is a useful setting
