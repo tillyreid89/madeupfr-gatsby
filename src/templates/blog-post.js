@@ -34,10 +34,14 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
+        image {
+          id
+          absolutePath
+        }
         path
         date(formatString: "MMMM DD, YYYY")
         title
-        description
+        # description
       }
     }
   }

@@ -6,6 +6,7 @@ import chunk from "lodash/fp/chunk";
 import map from "lodash/fp/map";
 import filter from "lodash/fp/filter";
 import isNil from "lodash/fp/isNil";
+import Img from "gatsby-image";
 
 const mapUncapped = map.convert({ cap: false });
 
@@ -32,6 +33,11 @@ class BlogPostElement extends React.Component {
             to={edge.node.frontmatter.path}
           >
             <div className="content">
+              <Img
+                css={{ top: 0, left: 0, right: 0, zIndex: -1 }}
+                style={{ position: `absolute` }}
+                sizes={edge.node.frontmatter.image.absolutePath}
+              />
               <h1
                 className="title"
                 style={{
@@ -109,7 +115,10 @@ export const pageQuery = graphql`
           excerpt(pruneLength: 200)
           id
           frontmatter {
-            image
+            image {
+              id
+              absolutePath
+            }
             title
             templateKey
             date(formatString: "MMMM DD, YYYY")
